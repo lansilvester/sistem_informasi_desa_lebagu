@@ -126,11 +126,23 @@
             </ol>
           </div>
         </div>
-        <div class="row content">
+        <div class="row content mb-5">
           <h1 class="fw-bold mb-3">Struktur Desa</h1>
           <div class="p-2 text-center">
             <img src="assets/img/struktur.jpeg" alt="" class="img-fluid rounded shadow-lg">
           </div>
+        </div>
+        <div class="row content">
+          <h1 class="fw-bold mb-3">Kegiatan</h1>
+          @foreach ($data_kegiatan as $data)
+              <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 shadow p-3">
+                <img src="{{ asset('storage/'. $data->foto) }}" alt="" class="img-fluid mb-4 rounded">
+                <h4>{{ $data->nama_kegiatan }}</h4>
+                @if($data->keterangan)
+                  <p>{{ $data->keterangan }}</p>
+                @endif
+              </div>
+          @endforeach
         </div>
       </div>
     </section><!-- End About Section -->

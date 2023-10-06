@@ -9,18 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class SuratKematianController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(function ($request, $next) {
-            $user = Auth::user();
-            
-            if ($user && $user->role === 'masyarakat') {
-                return redirect()->route('dashboard');
-            }
-
-            return $next($request);
-        });
-    }
     
     public function index()
     {

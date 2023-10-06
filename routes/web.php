@@ -5,12 +5,15 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PengajuanKependudukanController;
+use App\Http\Controllers\SuratKelahiranController;
 use App\Http\Controllers\SuratKematianController;
+use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('landingpage');
+    $data_kegiatan = Kegiatan::all();
+    return view('landingpage', compact('data_kegiatan'));
 });
 
 Route::get('login', function(){
@@ -27,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('pengajuan_penduduk', PengajuanKependudukanController::class);
         Route::put('/pengajuan_penduduk/check/{id}', [PengajuanKependudukanController::class, 'check'])->name('pengajuan_penduduk.check');
         Route::resource('surat_kematian', SuratKematianController::class);
+        Route::resource('surat_kelahiran', SuratKelahiranController::class);
         Route::resource('kegiatan', KegiatanController::class);
    
     Route::post('/logout', [LoginController::class,'logout'])->name('logout');

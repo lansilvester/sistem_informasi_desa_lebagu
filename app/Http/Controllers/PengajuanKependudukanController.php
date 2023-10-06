@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class PengajuanKependudukanController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(function ($request, $next) {
-            $user = Auth::user();
+    // public function __construct()
+    // {
+    //     $this->middleware(function ($request, $next) {
+    //         $user = Auth::user();
             
-            if ($user && $user->role === 'masyarakat') {
-                return redirect()->route('dashboard');
-            }
+    //         if ($user && $user->role === 'masyarakat') {
+    //             return redirect()->route('dashboard');
+    //         }
 
-            return $next($request);
-        });
-    }
+    //         return $next($request);
+    //     });
+    // }
     public function index()
     {
         $data_pengajuan_penduduk = PengajuanKependudukan::all();

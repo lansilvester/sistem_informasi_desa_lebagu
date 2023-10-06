@@ -15,9 +15,9 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title>Admin Dashboard</title>
+	<title>Login Form</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-	<link href="{{ asset('admin/admin/css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -26,14 +26,18 @@
 	<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h1>
+                            {{ __('Login') }}
+                        </h1>
+                    </div>
     
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
     
-                            <div class="form-group row">
+                            <div class="form-group mb-4 row">
                                 <label for="nik" class="col-md-4 col-form-label text-md-right">{{ __('NIK') }}</label>
     
                                 <div class="col-md-6">
@@ -47,7 +51,7 @@
                                 </div>
                             </div>
     
-                            <div class="form-group row">
+                            <div class="form-group mb-4 row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
     
                                 <div class="col-md-6">
@@ -60,22 +64,12 @@
                                     @enderror
                                 </div>
                             </div>
+
     
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-    
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="form-group row mb-0">
+                            <div class="form-group mb-4 row">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-send"></i>
                                         {{ __('Login') }}
                                     </button>
     

@@ -5,7 +5,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
                     data-bs-toggle="dropdown">
-                    <i class="align-middle" data-feather="settings"></i>
+                    <i class="align-middle"></i>
                 </a>
 
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
@@ -13,9 +13,7 @@
                     <i data-feather="user"></i> {{ Auth::user()->nama }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="{{ route('penduduk.show', Auth::user()->id) }}">
-                        <i class="bi bi-person"></i> Profile
-                    </a>
+
                     {{-- <a class="dropdown-item" href="{{ route('penduduk.edit_password', Auth::user()->id) }}" >
                         <i class="bi bi-key"></i> Ubah Password
                     </a> --}}

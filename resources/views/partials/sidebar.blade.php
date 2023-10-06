@@ -39,6 +39,12 @@
                         class="align-middle">Surat Kematian</span>
                 </a>
             </li>
+            <li class="sidebar-item {{ Request::is('surat_kelahiran*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('surat_kelahiran.index') }}">
+                    <i class="align-middle" data-feather="check"></i> <span
+                        class="align-middle">Surat Kelahiran</span>
+                </a>
+            </li>
         
             @endif
     </div>

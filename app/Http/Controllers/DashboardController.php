@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use App\Models\Penduduk;
 use App\Models\PengajuanKependudukan;
+use App\Models\SuratKelahiran;
 use App\Models\SuratKematian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,9 @@ class DashboardController extends Controller
         $data_surat_kematian_by = SuratKematian::where('nik_pelapor', Auth::user()->nik)->get();
         $data_surat_kematian = SuratKematian::where('status','pending')->get();
 
+        $data_surat_kelahiran_by = SuratKelahiran::where('nik_pelapor', Auth::user()->nik)->get();
+        $data_surat_kelahiran = SuratKelahiran::where('status','pending')->get();
+
         $data_pribadi = Penduduk::find(Auth::user()->id);
 
         return view('admin.dashboard', compact(
@@ -35,6 +39,8 @@ class DashboardController extends Controller
             'data_pengajuan_kependudukan',
             'data_surat_kematian_by',
             'data_surat_kematian',
+            'data_surat_kelahiran_by',
+            'data_surat_kelahiran',
             'data_pribadi'
         ));
     }
